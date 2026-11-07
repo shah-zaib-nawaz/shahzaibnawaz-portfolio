@@ -12,7 +12,7 @@
 
 **High-performance ecommerce portfolio showcasing 150+ stores delivered across Shopify, WooCommerce, and Custom Headless Architectures.**
 
-[Live Demo](https://shahzaibnawaz.dev/) · [Contact](mailto:shahzaibnawazoffical@gmail.com) · [Fiverr Profile](https://www.fiverr.com/shahzaib_nawaz_)
+[Live Demo](https://www.shahzaibnawaz.dev/) · [Contact](mailto:shahzaibnawazoffical@gmail.com) · [Fiverr Profile](https://www.fiverr.com/shahzaib_nawaz_)
 
 </div>
 
@@ -140,7 +140,7 @@ To update store statistics, biography, brand logos, or project demo links, simpl
 ## 👤 Author
 
 **Shahzaib Nawaz**
-- **Website**: [shahzaibnawaz.dev](https://shahzaibnawaz.dev)
+- **Website**: [www.shahzaibnawaz.dev](https://www.shahzaibnawaz.dev/)
 - **Fiverr**: [@shahzaib_nawaz_](https://www.fiverr.com/shahzaib_nawaz_)
 - **Email**: [shahzaibnawazoffical@gmail.com](mailto:shahzaibnawazoffical@gmail.com)
 - **GitHub**: [@shah-zaib-nawaz](https://github.com/shah-zaib-nawaz)

@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://shahzaibnawaz.dev",
+      url: "https://www.shahzaibnawaz.dev",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,

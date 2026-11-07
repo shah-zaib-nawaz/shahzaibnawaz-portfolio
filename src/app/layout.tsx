@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   title: "SHAHZAIB NAWAZ | Shopify, WooCommerce & Custom Ecommerce Specialist",
   description:
     "Shahzaib Nawaz — Ecommerce specialist, Shopify & WooCommerce developer, and custom UI/UX store engineer. 150+ stores built and delivered.",
-  metadataBase: new URL("https://shahzaibnawaz.dev/"),
+  metadataBase: new URL("https://www.shahzaibnawaz.dev/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    url: "https://shahzaibnawaz.dev/",
+    url: "https://www.shahzaibnawaz.dev/",
     siteName: "Shahzaib Nawaz",
     title: "SHAHZAIB NAWAZ | Shopify, WooCommerce & Custom Ecommerce Specialist",
     description: "Every pixel has a purpose. 150+ custom ecommerce, Shopify and WooCommerce stores built and delivered by Shahzaib Nawaz.",

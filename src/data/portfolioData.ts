@@ -131,8 +131,8 @@ export const portfolioData: PortfolioConfig = {
     email: "shahzaibnawazoffical@gmail.com",
     instagramHandle: "@shahzaibnawaz_",
     instagramUrl: "https://www.instagram.com/shahzaibnawaz_/",
-    studioName: "shahzaibnawaz.dev",
-    studioUrl: "https://shahzaibnawaz.dev",
+    studioName: "www.shahzaibnawaz.dev",
+    studioUrl: "https://www.shahzaibnawaz.dev/",
     fiverrUser: "shahzaib_nawaz_",
     fiverrUrl: "https://www.fiverr.com/shahzaib_nawaz_",
     githubUser: "shah-zaib-nawaz",
@@ -170,7 +170,7 @@ export const portfolioData: PortfolioConfig = {
     {
       date: "2023 · NOW",
       title: "Lead Ecommerce Architect",
-      place: "shahzaibnawaz.dev",
+      place: "www.shahzaibnawaz.dev",
       text: "Directing an independent ecommerce development practice, engineering custom storefronts, high-converting Shopify and WooCommerce stores, and bespoke ecommerce platforms for global brands.",
     },
     {

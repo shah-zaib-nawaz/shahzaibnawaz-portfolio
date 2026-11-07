@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://shahzaibnawaz.dev/sitemap.xml",
+    sitemap: "https://www.shahzaibnawaz.dev/sitemap.xml",
   };
 }
