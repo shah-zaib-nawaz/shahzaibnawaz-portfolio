@@ -44,6 +44,7 @@ export function Header({ onToggleMotion }: HeaderProps) {
     ["portfolio", "Work"],
     ["about", "About"],
     ["experience", "Journey"],
+    ["testimonials", "Reviews"],
     ["contact", "Contact"],
   ];
 
@@ -52,6 +53,7 @@ export function Header({ onToggleMotion }: HeaderProps) {
     ["portfolio", "Work"],
     ["about", "About"],
     ["experience", "Journey"],
+    ["testimonials", "Reviews"],
     ["contact", "Contact"],
   ];
 

@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ArrowUpRight } from "lucide-react";
-import { easeCustom } from "./MotionContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { portfolioData, Project } from "@/data/portfolioData";
 
@@ -36,43 +34,41 @@ export function Journey({ onProject }: JourneyProps) {
 
       <div className="journey-grid">
         <div className="experience-list">
-          {experiences.map((item, idx) => (
-            <AnimatedSection
-              key={item.title}
-              className={`experience-row ${openIndex === idx ? "is-open" : ""}`}
-            >
-              <button
-                aria-expanded={openIndex === idx}
-                aria-controls={`job-${idx}`}
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+          {experiences.map((item, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <AnimatedSection
+                key={item.title}
+                className={`experience-row ${isOpen ? "is-open" : ""}`}
               >
-                <span className="experience-date">{item.date}</span>
-                <span>
-                  <h3>{item.title}</h3>
-                  <span className="experience-place">{item.place}</span>
-                </span>
-                {openIndex === idx ? (
-                  <Minus size={18} />
-                ) : (
-                  <Plus size={18} />
-                )}
-              </button>
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`job-${idx}`}
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                >
+                  <span className="experience-date">{item.date}</span>
+                  <span>
+                    <h3>{item.title}</h3>
+                    <span className="experience-place">{item.place}</span>
+                  </span>
+                  {isOpen ? (
+                    <Minus size={18} />
+                  ) : (
+                    <Plus size={18} />
+                  )}
+                </button>
 
-              <AnimatePresence initial={false}>
-                {openIndex === idx && (
-                  <motion.div
-                    id={`job-${idx}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: easeCustom }}
-                  >
-                    <p>{item.text}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </AnimatedSection>
-          ))}
+                <div
+                  id={`job-${idx}`}
+                  className={`experience-detail ${isOpen ? "is-expanded" : "is-collapsed"}`}
+                  aria-hidden={!isOpen}
+                >
+                  <p>{item.text}</p>
+                </div>
+              </AnimatedSection>
+            );
+          })}
         </div>
 
         <AnimatedSection className="awards-panel">
@@ -83,17 +79,27 @@ export function Journey({ onProject }: JourneyProps) {
           </h3>
           <div className="award-list">
             {milestones.map((p, idx) => (
-              <button key={p.title} onClick={() => onProject(p)}>
+              <a
+                key={p.title}
+                href={p.liveUrl || p.media || "#portfolio"}
+                className="award-item-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onProject(p);
+                }}
+                aria-label={`View milestone: ${p.title}`}
+              >
                 <span>{String(idx + 1).padStart(2, "0")}</span>
                 <span>
-                  {p.title}
+                  <strong>{p.title}</strong>
                   <small>
                     {p.category}
                     {p.year ? ` · ${p.year}` : ""}
+                    {p.metric ? ` · ${p.metric}` : ""}
                   </small>
                 </span>
                 <ArrowUpRight size={19} />
-              </button>
+              </a>
             ))}
           </div>
         </AnimatedSection>

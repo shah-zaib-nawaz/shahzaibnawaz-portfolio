@@ -10,6 +10,7 @@ import { Portfolio } from "@/components/Portfolio";
 import { WireframeComparison } from "@/components/WireframeComparison";
 import { About } from "@/components/About";
 import { Journey } from "@/components/Journey";
+import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ProjectModal } from "@/components/ProjectModal";
@@ -70,6 +71,7 @@ export default function Home() {
           <WireframeComparison />
           <About />
           <Journey onProject={setSelectedProject} />
+          <Testimonials />
           <Contact onProject={setSelectedProject} />
         </main>
 

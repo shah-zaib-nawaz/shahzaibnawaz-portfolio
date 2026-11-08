@@ -57,18 +57,42 @@ export function About() {
             ))}
           </div>
 
-          <div className="software-row">
-            {tech.map(([key, name]) => (
-              <img
-                key={key}
-                src={`/Asset/svg/${key}.svg`}
-                alt={name}
-                title={name}
-                loading="lazy"
-                width="28"
-                height="28"
-              />
-            ))}
+          <div className="software-row" aria-label="Core ecommerce and design software">
+            {tech
+              .filter(([k]) => !["antigravity", "claude", "vscode"].includes(k))
+              .map(([key, name]) => (
+                <img
+                  key={key}
+                  src={`/Asset/svg/${key}.svg`}
+                  alt={name}
+                  title={name}
+                  loading="lazy"
+                  width="28"
+                  height="28"
+                />
+              ))}
+          </div>
+
+          <div className="ai-workflow-box">
+            <span className="eyebrow accent">AI & ENGINEERING WORKFLOW</span>
+            <p>Accelerating custom store delivery & clean code with modern AI agentic workflows:</p>
+            <div className="software-row ai-software-row">
+              {tech
+                .filter(([k]) => ["antigravity", "claude", "vscode"].includes(k))
+                .map(([key, name]) => (
+                  <div key={key} className="ai-tool-pill">
+                    <img
+                      src={`/Asset/svg/${key}.svg`}
+                      alt={name}
+                      title={name}
+                      loading="lazy"
+                      width="20"
+                      height="20"
+                    />
+                    <span>{name}</span>
+                  </div>
+                ))}
+            </div>
           </div>
         </AnimatedSection>
 

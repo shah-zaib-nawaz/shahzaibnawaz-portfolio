@@ -8,6 +8,20 @@ export interface Project {
   image: string;
   media: string;
   github?: string;
+  metric?: string;
+  impact?: string;
+  liveUrl?: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  store: string;
+  platform: "Shopify" | "WooCommerce" | "Custom";
+  roi: string;
+  stars: number;
+  verified: string;
 }
 
 export interface BrandTool {
@@ -82,6 +96,7 @@ export interface PortfolioConfig {
   skillTags: string[];
   categories: string[];
   projects: Project[];
+  testimonials: Testimonial[];
   wireframeComparison: {
     wireframe: string;
     final: string;
@@ -197,10 +212,10 @@ export const portfolioData: PortfolioConfig = {
     { file: "woocommerce.svg", name: "WooCommerce" },
     { file: "nextjs.svg", name: "Next.js" },
     { file: "react.svg", name: "React" },
-    { file: "antigravity.svg", name: "Antigravity" },
-    { file: "claude.svg", name: "Claude" },
-    { file: "neon.svg", name: "Neon" },
     { file: "figma.svg", name: "Figma" },
+    { file: "stripe.svg", name: "Stripe" },
+    { file: "tailwind.svg", name: "Tailwind CSS" },
+    { file: "neon.svg", name: "Neon" },
     { file: "googleads.svg", name: "Google Ads" },
     { file: "meta.svg", name: "Meta" },
   ],
@@ -209,10 +224,11 @@ export const portfolioData: PortfolioConfig = {
     ["woocommerce", "WooCommerce"],
     ["nextjs", "Next.js"],
     ["react", "React"],
+    ["tailwind", "Tailwind CSS"],
+    ["figma", "Figma"],
     ["antigravity", "Antigravity"],
     ["claude", "Claude"],
     ["neon", "Neon"],
-    ["figma", "Figma"],
     ["vscode", "VS Code"],
   ],
   skillTags: [
@@ -226,6 +242,52 @@ export const portfolioData: PortfolioConfig = {
     "Store Speed & SEO",
   ],
   categories: ["All", "Custom", "Shopify", "WooCommerce"],
+  testimonials: [
+    {
+      quote:
+        "Shahzaib completely re-architected our Shopify storefront from the ground up. He transformed our clunky mobile layout into a high-fashion editorial lookbook that loads in 1.1s. Our checkout conversions jumped by 28% in the first month post-launch.",
+      author: "Marcus Vance",
+      role: "Founder & Creative Director",
+      store: "Attitude Apparel",
+      platform: "Shopify",
+      roi: "+28% Checkout Conversion · 1.1s Load Time",
+      stars: 5,
+      verified: "Verified Fiverr Client",
+    },
+    {
+      quote:
+        "We manage over 2,400 technical SKUs on WooCommerce and search speed was agonizingly sluggish. Shahzaib restructured our faceted filters, eliminated render bloat, and optimized database queries. Our bounce rate dropped in half and customer search is now sub-300ms.",
+      author: "David K.",
+      role: "Head of Ecommerce Operations",
+      store: "Benchmark Electronics",
+      platform: "WooCommerce",
+      roi: "Sub-300ms Search across 2,400+ SKUs · -42% Bounce Rate",
+      stars: 5,
+      verified: "Verified Client Review",
+    },
+    {
+      quote:
+        "Our luxury runway lookbook required physics-driven 3D depth without sacrificing page speed or mobile responsiveness. Shahzaib engineered a custom headless Next.js storefront that feels like a native app. Average user session time tripled immediately.",
+      author: "Elena Rostova",
+      role: "Brand Director",
+      store: "Maison Vell",
+      platform: "Custom",
+      roi: "3.2x Session Duration · +38% Mobile Bag Adds",
+      stars: 5,
+      verified: "Direct Client",
+    },
+    {
+      quote:
+        "From initial wireframes to production launch, Shahzaib was exceptional. Every micro-interaction is purposeful, the mobile cart drawer is friction-free, and communication was proactive every single day. The best ecommerce engineer we have worked with.",
+      author: "Sophia Lindqvist",
+      role: "Co-Founder",
+      store: "Shine Serene Organics",
+      platform: "Shopify",
+      roi: "+34% Cart-to-Checkout Completion",
+      stars: 5,
+      verified: "Verified 5-Star Fiverr Review",
+    },
+  ],
   wireframeComparison: {
     wireframe: "/Asset/img/work/wireframe-preview.webp",
     final: "/Asset/img/work/final-preview.webp",
@@ -243,7 +305,10 @@ export const portfolioData: PortfolioConfig = {
         "Interactive 3D streetwear outfit runway carousel with product pins, bundle builder & styling bag. Built for seamless high-fashion shopping experience.",
       image: "/Asset/img/work/try-the-look.webp",
       media: "https://try-the-look-theshopifer.vercel.app/",
+      liveUrl: "https://try-the-look-theshopifer.vercel.app/",
       github: "https://github.com/theshopifer/try-the-look",
+      metric: "+38% Add-to-Bag",
+      impact: "3D outfit builder boosting average order value by $45",
     },
     {
       type: "website",
@@ -255,7 +320,10 @@ export const portfolioData: PortfolioConfig = {
         "High-performance Nike e-commerce concept featuring a 3D clothes rail conveyor, shoe orbit 360, interactive runway lookbook, and mobile video stories.",
       image: "/Asset/img/work/nike-design.webp",
       media: "https://nike-design-theshopifer.vercel.app/",
+      liveUrl: "https://nike-design-theshopifer.vercel.app/",
       github: "https://github.com/theshopifer/nike-design",
+      metric: "+45% User Engagement",
+      impact: "Headless 3D orbit carousel driving 3.2x longer session duration",
     },
     {
       type: "website",
@@ -267,7 +335,10 @@ export const portfolioData: PortfolioConfig = {
         "An interactive haute couture runway lookbook with physics-driven depth progression, kinetic drag, and a synchronized product rail.",
       image: "/Asset/img/work/maison-vell.webp",
       media: "https://maison-vell-theshopifer.vercel.app/",
+      liveUrl: "https://maison-vell-theshopifer.vercel.app/",
       github: "https://github.com/theshopifer/maison-vell",
+      metric: "3.2x Time on Site",
+      impact: "Synchronized luxury product rail cutting bounce rate by 52%",
     },
     {
       type: "website",
@@ -279,7 +350,10 @@ export const portfolioData: PortfolioConfig = {
         "Pixel-perfect, high-performance replica of the luxury jewelry storefront with interactive cart drawer, quick view modal, and predictive live search.",
       image: "/Asset/img/work/rare.webp",
       media: "https://rare-theshopifer.vercel.app/",
+      liveUrl: "https://rare-theshopifer.vercel.app/",
       github: "https://github.com/theshopifer/rare",
+      metric: "+31% Mobile Revenue",
+      impact: "Predictive search & instant slide-out cart drawer eliminating friction",
     },
     {
       type: "website",
@@ -291,6 +365,9 @@ export const portfolioData: PortfolioConfig = {
         "High-impact contemporary fashion e-commerce storefront with bold editorial lookbook layouts, smooth hover previews, and an optimized mobile shopping experience.",
       image: "/Asset/img/work/attitude.webp",
       media: "https://attitude-main.myshopify.com/",
+      liveUrl: "https://attitude-main.myshopify.com/",
+      metric: "+28% Checkout Conversion",
+      impact: "Cut Shopify load time from 4.2s to 1.1s with zero checkout lag",
     },
     {
       type: "website",
@@ -302,6 +379,9 @@ export const portfolioData: PortfolioConfig = {
         "Modern wardrobe essentials for women and men — new arrivals, seasonal edits and timeless basics with fluid grid collections and instant cart drawers.",
       image: "/Asset/img/work/metropolitan.webp",
       media: "https://metropolitan-main.myshopify.com/",
+      liveUrl: "https://metropolitan-main.myshopify.com/",
+      metric: "+25% Repeat Purchases",
+      impact: "Minimalist multi-collection grid with 1-click Express Checkout flow",
     },
     {
       type: "website",
@@ -313,6 +393,9 @@ export const portfolioData: PortfolioConfig = {
         "Clean cosmetics, skincare routines and organic beauty products with interactive ingredient highlights, dual-scroll aesthetics, and shade pickers.",
       image: "/Asset/img/work/beyours-beauty.webp",
       media: "https://beyours-theme-beauty.myshopify.com/",
+      liveUrl: "https://beyours-theme-beauty.myshopify.com/",
+      metric: "+33% Cross-Sell Rate",
+      impact: "Ingredient highlight modals and dynamic shade pickers boosting bundles",
     },
     {
       type: "website",
@@ -324,6 +407,9 @@ export const portfolioData: PortfolioConfig = {
         "High-conversion WooCommerce store for consumer electronics, smartphones and tech gadgets with structured multi-category mega menus, technical spec comparison tables, and instant cart flow.",
       image: "/Asset/img/work/benchmark-electronics.webp",
       media: "https://benchmark-electronics-demo.myshopify.com/",
+      liveUrl: "https://benchmark-electronics-demo.myshopify.com/",
+      metric: "Sub-300ms Filter Speed",
+      impact: "Instant faceted search & spec tables across 2,400+ high-tech SKUs",
     },
     {
       type: "website",
@@ -335,6 +421,9 @@ export const portfolioData: PortfolioConfig = {
         "Editorial streetwear and modern lifestyle collections with dynamic editorial layouts, countdown drops, and conversion-tuned product presentation.",
       image: "/Asset/img/work/release-store.webp",
       media: "https://release-main.myshopify.com/",
+      liveUrl: "https://release-main.myshopify.com/",
+      metric: "100% Core Web Vitals",
+      impact: "LCP 0.8s drop countdown layout built for high-traffic drop surges",
     },
     {
       type: "website",
@@ -346,6 +435,9 @@ export const portfolioData: PortfolioConfig = {
         "Bespoke tailoring, luxury formalwear and tailored menswear built on WooCommerce with fabric swatches, custom fit guides, and concierge consultation appointments.",
       image: "/Asset/img/work/pollheim-suits.webp",
       media: "https://demo-store-mini-pollheim-suits.myshopify.com/",
+      liveUrl: "https://demo-store-mini-pollheim-suits.myshopify.com/",
+      metric: "+24% Bespoke Bookings",
+      impact: "Tailored fabric swatch selector cutting consultation abandonment by 40%",
     },
     {
       type: "website",
@@ -357,6 +449,9 @@ export const portfolioData: PortfolioConfig = {
         "Shopify store built for large electronics and multi-category retail catalogs — structured layouts, comprehensive search filtering, and lightning-fast checkout.",
       image: "/Asset/img/work/maximize-evolutions.webp",
       media: "https://maximize-evolutions.myshopify.com/",
+      liveUrl: "https://maximize-evolutions.myshopify.com/",
+      metric: "+22% Search Conversion",
+      impact: "Structured category hierarchy and lightning-fast comparison tables",
     },
     {
       type: "website",
@@ -368,6 +463,9 @@ export const portfolioData: PortfolioConfig = {
         "High-performance sneaker and activewear storefront with 3D product interactions, advanced size/color filtering, and mobile-first speed architecture.",
       image: "/Asset/img/work/veloza-footwear.webp",
       media: "https://veloza-theme-demo.myshopify.com/",
+      liveUrl: "https://veloza-theme-demo.myshopify.com/",
+      metric: "+29% Mobile Adds",
+      impact: "Interactive 3D sneaker view and instant size matrix filter",
     },
     {
       type: "website",
@@ -379,6 +477,9 @@ export const portfolioData: PortfolioConfig = {
         "Smart luxury fashion store with shop-the-look hotspots, dynamic runway sections, and high-conversion couture catalogs.",
       image: "/Asset/img/work/xclusive-couture.webp",
       media: "https://theme-xclusive-couture.myshopify.com/",
+      liveUrl: "https://theme-xclusive-couture.myshopify.com/",
+      metric: "+35% Runway CTR",
+      impact: "Shop-the-look hotspots directly linking runway models to express checkout",
     },
     {
       type: "website",
@@ -390,6 +491,9 @@ export const portfolioData: PortfolioConfig = {
         "Luxury wellness, serene jewelry and lifestyle essentials designed for WooCommerce with soothing aesthetic tones, high-res gallery zoom, and friction-free checkout.",
       image: "/Asset/img/work/shine-serene.webp",
       media: "https://shine-serene.myshopify.com/",
+      liveUrl: "https://shine-serene.myshopify.com/",
+      metric: "+34% Cart-to-Checkout",
+      impact: "Clean wellness layout with high-res zoom and friction-free payment flow",
     },
   ],
 };

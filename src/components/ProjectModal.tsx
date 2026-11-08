@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { X, ExternalLink, Github } from "lucide-react";
+import { X, ExternalLink, Github, TrendingUp } from "lucide-react";
 import { useMotion, easeCustom } from "./MotionContext";
 import { MediaImage } from "./MediaImage";
 import { Project } from "@/data/portfolioData";
@@ -15,8 +15,9 @@ interface ProjectModalProps {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const motionEnabled = useMotion();
-  const externalLink =
-    project.media && project.media !== project.image ? project.media : null;
+  const targetLiveUrl =
+    project.liveUrl ||
+    (project.media && project.media.startsWith("http") ? project.media : undefined);
 
   useEffect(() => {
     const prevActiveElement = document.activeElement as HTMLElement | null;
@@ -98,20 +99,29 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="dialog-description">
           <div>
-            <h2 id="dialog-title">{project.title}</h2>
-            {project.role && <span className="accent">{project.role}</span>}
+            <div className="modal-title-row">
+              <h2 id="dialog-title">{project.title}</h2>
+              {project.metric && (
+                <div className="modal-roi-badge" title="Measurable Client Outcome">
+                  <TrendingUp size={13} />
+                  <span>{project.metric}</span>
+                </div>
+              )}
+            </div>
+            {project.role && <span className="accent modal-role">{project.role}</span>}
+            {project.impact && <p className="modal-impact-text">{project.impact}</p>}
             <p>{project.description}</p>
           </div>
 
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
-            {externalLink && (
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+            {targetLiveUrl && (
               <a
-                className="outline-button"
-                href={externalLink}
+                className="outline-button modal-live-btn"
+                href={targetLiveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {project.type === "website" ? "Visit live demo" : "View full project"}
+                <span>VISIT LIVE STORE</span>
                 <ExternalLink size={15} />
               </a>
             )}
@@ -123,7 +133,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 rel="noopener noreferrer"
               >
                 <Github size={15} />
-                GitHub Repo
+                <span>GitHub Repo</span>
               </a>
             )}
           </div>
